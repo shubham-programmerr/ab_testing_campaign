@@ -36,8 +36,6 @@ def main():
 
 def show_overview_page(df: pd.DataFrame):
     """Show overview page."""
-    st.title("📊 A/B Testing Campaign Analysis Dashboard")
-    
     if df is None:
         DashboardLayout.create_overview_page()
         return
@@ -100,8 +98,6 @@ def show_overview_page(df: pd.DataFrame):
 
 def show_data_analysis_page(df: pd.DataFrame):
     """Show data analysis page."""
-    st.title("📋 Data Analysis")
-    
     if df is None:
         DashboardLayout.create_data_analysis_page()
         return
@@ -153,6 +149,10 @@ def show_data_analysis_page(df: pd.DataFrame):
 def show_statistical_tests_page(df: pd.DataFrame):
     """Show statistical tests page."""
     st.title("📊 Statistical Analysis")
+    
+    if df is None:
+        st.info("Upload data in the sidebar to perform statistical tests")
+        return
     
     col1, col2 = st.columns(2)
     
@@ -216,8 +216,6 @@ def show_statistical_tests_page(df: pd.DataFrame):
 
 def show_segments_page(df: pd.DataFrame):
     """Show segments page."""
-    st.title("🔍 Segment Analysis")
-    
     if df is None:
         DashboardLayout.create_segments_page()
         return
@@ -249,8 +247,6 @@ def show_segments_page(df: pd.DataFrame):
 
 def show_report_page(df: pd.DataFrame):
     """Show report page."""
-    st.title("📄 Test Report & Recommendations")
-    
     if df is None:
         DashboardLayout.create_report_page()
         return
